@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@import "@fontsource-variable/sora";
+@import "@fontsource-variable/jetbrains-mono";
+
+/* A hearth: charcoal, embers and flame on top, cooling to blue as data sinks. */
+@theme {
+  --font-sans: "Sora Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+
+  --color-coal: #130f0c;
+  --color-ash: #1e1814;
+  --color-ash-2: #2a211b;
+  --color-line: #43352b;
+  --color-ink: #f7ecdd;
+  --color-ink-2: #c8b39c;
+  --color-ink-3: #8d7a68;
+  --color-ember: #ff6b1a;
+  --color-flame: #ffd23f;
+  --color-ok: #7ddc8a;
+  --color-bad: #ff5d73;
+
+  --color-hot-0: #ffd23f;
+  --color-hot-1: #ff9a2e;
+  --color-hot-2: #ff6b3d;
+  --color-hot-3: #e0457b;
+  --color-hot-4: #9b5de5;
+  --color-hot-5: #4f7cff;
+  --color-hot-6: #2bb3c0;
+
+  --shadow-glow: 0 0 0 1px rgb(255 107 26 / 0.5), 0 0 28px rgb(255 107 26 / 0.22);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--color-coal);
+  background-image: radial-gradient(900px 420px at 18% -8%, rgb(255 107 26 / 0.16), transparent 70%);
+  background-repeat: no-repeat;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-variant-ligatures: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--color-ink-3);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #5a4638 transparent;
+}
+
+/* A table that just appeared glows, then settles. */
+@keyframes kindle {
+  0% {
+    transform: scaleY(0.2);
+    filter: brightness(2.2);
+  }
+  60% {
+    filter: brightness(1.6);
+  }
+}
+.kindle {
+  animation: kindle 0.7s ease-out;
+  transform-origin: bottom;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+.rise {
+  animation: rise 0.18s ease-out;
+}
+
+@keyframes flicker {
+  50% {
+    opacity: 0.55;
+  }
+}
+.flicker {
+  animation: flicker 0.9s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kindle,
+  .flicker {
+    animation: none;
+  }
+}
